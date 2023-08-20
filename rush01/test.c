@@ -111,43 +111,12 @@ void init_matrix(int matrix[SIZE][SIZE]){
         cl++;
     }
 }
-void ft_fillcol(int matrix[SIZE][SIZE], int col, int side)
-{
-    int i;
-
-    i = 0;
-    while (i < SIZE)
-    {
-        if (side == 0)
-        {
-            matrix[i][col] = i + 1;
-        }
-        else
-        {
-            matrix[i][col] = SIZE - i;
-        }
-        i++;
-    }
-}
-void ft_fillrow(int matrix[SIZE][SIZE], int row, int side)
-{
-    int i;
-
-    i = 0;
-    while (i < SIZE)
-    {
-        if (side == 0)
-            matrix[row][i] = i + 1;
-        else
-            matrix[row][i] = SIZE - i;
-        i++;
-    }
-}
 // Rellenar tamaño máximo
 void ft_fillMax(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE])
 {
     int i;
     int j;
+    int k;
 
     i = 0;
     while (i < 2)
@@ -157,11 +126,27 @@ void ft_fillMax(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE])
         {
             if (col[i][j] == SIZE)
             {
-                ft_fillcol(matrix, j, i);
+                k = 0;
+                while (k < SIZE)
+                {
+                    if (i == 0)
+                        matrix[k][j] = k + 1;
+                    else
+                        matrix[k][j] = SIZE - k;
+                    k++;
+                }
             }                
             if (row[i][j] == SIZE)
             {
-                ft_fillrow(matrix, j, i);
+                k = 0;
+                while (k < SIZE)
+                {
+                    if (i == 0)
+                        matrix[j][k] = k + 1;
+                    else
+                        matrix[j][k] = SIZE - k;
+                    k++;
+                }
             }                
             j++;
         }
