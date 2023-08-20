@@ -61,8 +61,8 @@ void add_clue_w(char *str, int col[2][SIZE], int row[2][SIZE])
         j = 0;
         while (j < SIZE)
         {
-            col[i][j] = str[i * SIZE * 2 + j * 2];
-            row[i][j] = str[i * SIZE * 2 + j * 2 + SIZE * 4];
+            col[i][j] = str[i * SIZE * 2 + j * 2] - '0';
+            row[i][j] = str[i * SIZE * 2 + j * 2 + SIZE * 4] - '0';
             j++;
         }
         i++;
@@ -79,7 +79,7 @@ void draw_clue(int col[2][SIZE], int row[2][SIZE])
         rw = 0;
         while (rw < SIZE)
         {
-            ft_putchar(col[cl][rw]);
+            ft_putnumber(col[cl][rw]);
             ft_putchar(' ');
             rw++;
         }
@@ -89,9 +89,9 @@ void draw_clue(int col[2][SIZE], int row[2][SIZE])
     cl = 0;
     while (cl < SIZE)
     {
-        ft_putchar(row[0][cl]);
+        ft_putnumber(row[0][cl]);
         ft_putchar(' ');
-        ft_putchar(row[1][cl]);
+        ft_putnumber(row[1][cl]);
         ft_putchar('\n');
         cl++;
     }
@@ -119,9 +119,13 @@ void ft_fillcol(int matrix[SIZE][SIZE], int col, int side)
     while (i < SIZE)
     {
         if (side == 0)
-            matrix[col - 1][i] = i + 1;
+        {
+            matrix[i][col] = i + 1;
+        }
         else
-            matrix[col - 1][i] = SIZE - i;
+        {
+            matrix[i][col] = SIZE - i;
+        }
         i++;
     }
 }
@@ -133,9 +137,9 @@ void ft_fillrow(int matrix[SIZE][SIZE], int row, int side)
     while (i < SIZE)
     {
         if (side == 0)
-            matrix[i][row - 1] = i + 1;
+            matrix[row][i] = i + 1;
         else
-            matrix[i][row - 1] = SIZE - i;
+            matrix[row][i] = SIZE - i;
         i++;
     }
 }
@@ -152,16 +156,23 @@ void ft_fillMax(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE])
         while (j < SIZE)
         {
             if (col[i][j] == SIZE)
+            {
                 ft_fillcol(matrix, j, i);
+            }                
             if (row[i][j] == SIZE)
+            {
                 ft_fillrow(matrix, j, i);
+            }                
             j++;
         }
         i++;
     }
 }
 // Rellenar la matriz
-void ft_fillmatrix(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE]);
+void ft_fillmatrix(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE])
+{
+    ft_fillMax(matrix, col, row);
+}
 int main(void){
     char str[] = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
     int col[2][SIZE];
@@ -172,7 +183,7 @@ int main(void){
     add_clue(str, col, row);
     add_clue_w(str, col, row);
     draw_clue(col, row);
-    ft_fillMax(matrix, col, row);
+    ft_fillmatrix(matrix, col, row);
     draw_matrix(matrix);
     return (0);
 }
