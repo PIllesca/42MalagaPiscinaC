@@ -111,6 +111,57 @@ void init_matrix(int matrix[SIZE][SIZE]){
         cl++;
     }
 }
+void ft_fillcol(int matrix[SIZE][SIZE], int col, int side)
+{
+    int i;
+
+    i = 0;
+    while (i < SIZE)
+    {
+        if (side == 0)
+            matrix[col - 1][i] = i + 1;
+        else
+            matrix[col - 1][i] = SIZE - i;
+        i++;
+    }
+}
+void ft_fillrow(int matrix[SIZE][SIZE], int row, int side)
+{
+    int i;
+
+    i = 0;
+    while (i < SIZE)
+    {
+        if (side == 0)
+            matrix[i][row - 1] = i + 1;
+        else
+            matrix[i][row - 1] = SIZE - i;
+        i++;
+    }
+}
+// Rellenar tamaño máximo
+void ft_fillMax(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE])
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < 2)
+    {
+        j = 0;
+        while (j < SIZE)
+        {
+            if (col[i][j] == SIZE)
+                ft_fillcol(matrix, j, i);
+            if (row[i][j] == SIZE)
+                ft_fillrow(matrix, j, i);
+            j++;
+        }
+        i++;
+    }
+}
+// Rellenar la matriz
+void ft_fillmatrix(int matrix[SIZE][SIZE], int col[2][SIZE], int row[2][SIZE]);
 int main(void){
     char str[] = "4 3 2 1 1 2 2 2 4 3 2 1 1 2 2 2";
     int col[2][SIZE];
@@ -121,5 +172,7 @@ int main(void){
     add_clue(str, col, row);
     add_clue_w(str, col, row);
     draw_clue(col, row);
+    ft_fillMax(matrix, col, row);
+    draw_matrix(matrix);
     return (0);
 }
