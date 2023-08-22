@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:17:29 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/21 19:25:04 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:27:50 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <string.h>
@@ -28,7 +28,7 @@ char	*ft_strcpy(char *dest, char *src)
 	return (dest);
 }
 
-#define SIZE 12
+#define SIZE 5
 
 int	main(void)
 {
