@@ -6,28 +6,33 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:28:33 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/22 10:41:42 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:28:20 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+int	ft_strlen(char *str)
+{
+	char	*ptr;
+
+	ptr = str;
+	while (*ptr)
+	{
+		ptr++;
+	}
+	return (ptr - str);
+}
+
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	i;
-	int	j;
-	int	k;
+	unsigned int	i;
+	unsigned int	j;
 
-	i = 0;
-	while (dest[i] != '\0')
-	{
-		i++;
-	}
+	i = ft_strlen(dest);
 	j = 0;
-	k = 0;
-	while (src[j] != '\0' && k < (int)nb)
+	while (src[j] != '\0' && j < nb)
 	{
 		dest[i] = src[j];
 		i++;
 		j++;
-		k++;
 	}
 	dest[i] = '\0';
 	return (dest);

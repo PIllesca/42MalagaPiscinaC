@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 18:39:40 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/22 10:56:54 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:41:16 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 char	*ft_strstr(char *str, char *to_find)
@@ -15,7 +15,8 @@ char	*ft_strstr(char *str, char *to_find)
 	char	*strg;
 	char	*look;
 
-	ret = 0;
+	if (*to_find == '\0')
+		return (str);
 	while (*str)
 	{
 		strg = str;
