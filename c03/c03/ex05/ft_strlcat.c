@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 19:01:06 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/22 11:44:04 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/23 12:11:36 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 unsigned int	ft_strlen(char *str)
@@ -46,6 +46,8 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	unsigned int	rtn;
 
 	dstlen = ft_strlen(dest);
+	if (src == 0)
+		return (dstlen);
 	srclen = ft_strlen(src);
 	if (size == 0)
 		rtn = srclen;
