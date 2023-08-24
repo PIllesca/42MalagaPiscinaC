@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 18:01:38 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/24 19:12:56 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:45:25 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 int	ft_chkbase(char *base)
@@ -77,7 +77,7 @@ int	ft_cmpbase(char c, char *base)
 	return (rtn);
 }
 
-int	ft_cntnum(char *str, char **rptr)
+int	ft_cntnum(char *str, char *base, char **rptr)
 {
 	char	*ptr;
 
@@ -96,13 +96,25 @@ int	ft_cntnum(char *str, char **rptr)
 	return (ptr - str);
 }
 
-int	ft_getstrnum(char *str, char *base, int mult, int size, int neg)
+int	ft_atoi_base(char *str, char *base)
 {
+	int	size;
+	int	neg;
 	int	decenas;
 	int	rtn;
+	int	mult;
 
-	rtn = 0;
+	if (str == 0)
+		return (0);
+	mult = ft_chkbase(base);
+	if (mult < 2)
+		return (0);
+	neg = ft_chksig(str, &str);
+	if (ft_cmpbase(*str, base) < 0)
+		return (0);
 	decenas = 1;
+	rtn = 0;
+	size = ft_cntnum(str, base, &str);
 	while (size > 0)
 	{
 		rtn += ft_cmpbase((str[size - 1]), base) * decenas;
@@ -110,22 +122,4 @@ int	ft_getstrnum(char *str, char *base, int mult, int size, int neg)
 		size--;
 	}
 	return (rtn * neg);
-}
-
-int	ft_atoi_base(char *str, char *base)
-{
-	int	size;
-	int	neg;
-
-	if (str == 0)
-		return (0);
-	size = ft_chkbase(base);
-	if (size < 2)
-		return (0);
-	neg = ft_chksig(str, &str);
-	if (ft_cmpbase(*str, base) < 0)
-	{
-		return (0);
-	}
-	return (ft_getstrnum(str, base, size, ft_cntnum(str, base, &str), neg));
 }
