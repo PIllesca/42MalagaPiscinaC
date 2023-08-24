@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 12:52:12 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/24 13:26:49 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/24 13:30:59 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -28,7 +28,7 @@ int	ft_chkbase(char *base)
 		j = i + 1;
 		while (j < size)
 		{
-			if (base[i] == base[j])
+			if (base[i] == base[j] || base[i] == '+' || base[i] == '-')
 				return (-1);
 			j++;
 		}
