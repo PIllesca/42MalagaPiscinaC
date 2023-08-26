@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 17:01:24 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/22 17:57:45 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/26 19:55:05 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -38,20 +38,24 @@ int	ft_chkneg(int nb)
 
 void	ft_putnbr(int nb)
 {
-	int	max;
-	int	pn;
+	long	div;
+	int		pn;
 
 	nb = ft_chkneg(nb);
-	max = 1000000000;
-	while (max >= 10)
+	div = 1;
+	while (div * 10 <= (long)nb)
 	{
-		pn = nb / max;
+		div *= 10;
+	}	
+	while (div >= 10)
+	{
+		pn = nb / div;
+		ft_printn (pn);
 		if (pn > 0)
 		{
-			ft_printn (pn);
-			nb %= max;
+			nb %= div;
 		}
-		max /= 10;
+		div /= 10;
 	}
 	ft_printn(nb % 10);
 }
