@@ -6,17 +6,19 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:22:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 19:05:35 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:17:17 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 #include <stdlib.h>
 
-char	**init_matrix(int size, char c);
+char	**init_matrix(int *xy, char c);
 
 void	draw_matrix(char **mat, int size);
 
 void	free_matrix(int size, char**mat, char *buffer);
+
+void	add_obst(char **mat, char *buffer, char *c, int *xy);
 
 void	read_map(char *fname, char **buffer, char *c, int *xy);
 
@@ -34,7 +36,8 @@ int	main(int argc, char *argv[])
 		while (i < argc)
 		{
 			read_map(argv[i], &buffer, c, xy);
-			mat = init_matrix(xy[1], c[0]);
+			mat = init_matrix(xy, c[0]);
+			add_obst(mat, buffer, c, xy);
 			draw_matrix(mat, xy[1]);
 			free_matrix(xy[1], mat, buffer);
 			i++;
