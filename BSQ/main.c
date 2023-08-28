@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:22:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 20:17:17 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:52:36 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -14,11 +14,11 @@
 
 char	**init_matrix(int *xy, char c);
 
-void	draw_matrix(char **mat, int size);
+void	draw_matrix(char **mat, int *xy);
 
 void	free_matrix(int size, char**mat, char *buffer);
 
-void	add_obst(char **mat, char *buffer, char *c, int *xy);
+void	add_obst(char **mat, char *buffer, char *c);
 
 void	read_map(char *fname, char **buffer, char *c, int *xy);
 
@@ -37,8 +37,8 @@ int	main(int argc, char *argv[])
 		{
 			read_map(argv[i], &buffer, c, xy);
 			mat = init_matrix(xy, c[0]);
-			add_obst(mat, buffer, c, xy);
-			draw_matrix(mat, xy[1]);
+			add_obst(mat, buffer, c);
+			draw_matrix(mat, xy);
 			free_matrix(xy[1], mat, buffer);
 			i++;
 		}

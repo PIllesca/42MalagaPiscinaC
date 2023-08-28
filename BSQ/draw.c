@@ -6,21 +6,21 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:19:39 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 12:31:22 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:50:59 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	draw_matrix(char **mat, int size)
+void	draw_matrix(char **mat, int *xy)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < size)
+	while (i < xy[1])
 	{
 		j = 0;
-		while (j < size)
+		while (j < xy[0])
 		{
 			write (1, &mat[i][j], 1);
 			j++;

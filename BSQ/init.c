@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:03:57 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 20:21:30 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/28 20:53:21 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -20,11 +20,11 @@ char	**init_matrix(int *xy, char c)
 
 	i = 0;
 	mat = malloc(xy[1] * sizeof(char *));
-	while (i < xy[0])
+	while (i < xy[1])
 	{
 		j = 0;
 		mat[i] = malloc(xy[0] * sizeof(char));
-		while (j < xy[1])
+		while (j < xy[0])
 		{
 			mat[i][j] = c;
 			j++;
@@ -34,7 +34,7 @@ char	**init_matrix(int *xy, char c)
 	return (mat);
 }
 
-void	add_obst(char **mat, char *buffer, char *c, int *xy)
+void	add_obst(char **mat, char *buffer, char *c)
 {
 	int	i;
 	int	x;
@@ -46,18 +46,18 @@ void	add_obst(char **mat, char *buffer, char *c, int *xy)
 	while (buffer[i] != '\n')
 		i++;
 	write (1, &buffer[i], 90);
-	write (1, "\n", 1);
-	while (buffer[i] != '\0' && y <= xy[1])
+	write (1, "\n\n", 2);
+	while (buffer[i] != '\0')
 	{
-		write(1, &buffer[i], 1);
-		if (buffer[i] == c[1] && x <= xy[0])
-			mat[x][y] = c[1];
+		if (buffer[i] == c[1])
+			mat[y][x] = c[1];
 		i++;
 		x++;
 		if (buffer[i] == '\n')
 		{
 			x = 0;
 			y++;
+			i++;
 		}
 	}
 }
