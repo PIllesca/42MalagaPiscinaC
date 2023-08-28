@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:03:57 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 20:53:21 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/28 21:19:03 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -59,6 +59,43 @@ void	add_obst(char **mat, char *buffer, char *c)
 			y++;
 			i++;
 		}
+	}
+}
+
+int	chk_square(int **matrix, int *xy, int *lxy, char *c)
+{
+	int	size;
+
+	size = 1;
+	return (size);
+}
+
+void	chk_matrix(int **matrix, int *xy, char *c)
+{
+	int	size;
+	int	best[3];
+	int	lxy[2];
+
+	best[0] = 0;
+	lxy[1] = 0;
+	while (lxy[1] <= xy[1])
+	{
+		lxy[0] = 0;
+		while (lxy[0] <= xy[0])
+		{
+			if (matrix[lxy[1]][lxy[0]] != c[1])
+			{
+				size = chk_square(matrix, xy, lxy, c);
+				if (size > best[0])
+				{
+					best[0] = size;
+					best[1] = lxy[0];
+					best[2] = lxy[1];
+				}
+			}
+			lxy[0]++;
+		}
+		lxy[1]++;
 	}
 }
 
