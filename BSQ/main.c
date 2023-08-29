@@ -24,12 +24,23 @@ void	read_map(char *fname, char **buffer, char *c, int *xy);
 
 void	ft_bsq(int *xy, char **mat, char *c);
 
-int	main(int argc, char *argv[])
+void	ft_calls(char *fname)
 {
 	char	**mat;
 	char	*buffer;
 	int		xy[2];
 	char	c[3];
+
+	read_map(fname, &buffer, c, xy);
+	mat = init_matrix(xy, c[0]);
+	add_obst(mat, buffer, c);
+	ft_bsq(xy, mat, c);
+	draw_matrix(mat, xy);
+	free_matrix(xy[1], mat, buffer);
+}
+
+int	main(int argc, char *argv[])
+{
 	int		i;
 
 	i = 1;
@@ -37,12 +48,7 @@ int	main(int argc, char *argv[])
 	{
 		while (i < argc)
 		{
-			read_map(argv[i], &buffer, c, xy);
-			mat = init_matrix(xy, c[0]);
-			add_obst(mat, buffer, c);
-			ft_bsq(xy, mat, c);
-			draw_matrix(mat, xy);
-			free_matrix(xy[1], mat, buffer);
+			ft_calls(argv[i]);
 			i++;
 		}
 	}

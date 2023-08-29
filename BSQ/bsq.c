@@ -10,26 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-#include <stdio.h>
-
-void	draw_aux(int *xy, int **aux)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (i < xy[1])
-	{
-		j = 0;
-		while (j < xy[0])
-		{
-			printf ("%d", aux[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-}
 
 int	ft_min(int a, int b, int c)
 {
@@ -76,7 +56,6 @@ int	**find_biggest(int *xy, char **mat, char *c, int *max)
 	int	j;
 
 	aux = init_aux(xy);
-	printf("\n");
 	i = 0;
 	while (i < xy[1])
 	{
@@ -135,11 +114,11 @@ void	ft_bsq(int *xy, char **mat, char *c)
 	max = 0;
 	aux = find_biggest(xy, mat, c, &max);
 	free_aux(xy, aux, max, lxy);
-	i = lxy[1] - max -1;
-	while (i < lxy[1])
+	i = lxy[1] - (max -1);
+	while (i <= lxy[1])
 	{
-		j = lxy[0] - max -1;
-		while (j < lxy[0])
+		j = lxy[0] - (max -1);
+		while (j <= lxy[0])
 		{
 			mat[i][j] = c[2];
 			j++;

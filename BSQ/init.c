@@ -46,7 +46,6 @@ void	add_obst(char **mat, char *buffer, char *c)
 	while (buffer[i] != '\n')
 		i++;
 	i++;
-
 	while (buffer[i] != '\0')
 	{
 		if (buffer[i] == c[1])
