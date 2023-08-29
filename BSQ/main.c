@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:22:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 20:52:36 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:15:37 by sborrego         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
@@ -21,6 +21,8 @@ void	free_matrix(int size, char**mat, char *buffer);
 void	add_obst(char **mat, char *buffer, char *c);
 
 void	read_map(char *fname, char **buffer, char *c, int *xy);
+
+void	ft_bsq(int *xy, char **mat, char *c);
 
 int	main(int argc, char *argv[])
 {
@@ -38,6 +40,7 @@ int	main(int argc, char *argv[])
 			read_map(argv[i], &buffer, c, xy);
 			mat = init_matrix(xy, c[0]);
 			add_obst(mat, buffer, c);
+			ft_bsq(xy, mat, c);
 			draw_matrix(mat, xy);
 			free_matrix(xy[1], mat, buffer);
 			i++;
