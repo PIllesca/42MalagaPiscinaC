@@ -44,7 +44,7 @@ int	ft_cntnum(char *str, char **rptr)
 		return (0);
 	}
 	ptr = str;
-	while (*ptr && (*ptr > '0' && *ptr <= '9'))
+	while (*ptr && (*ptr >= '0' && *ptr <= '9'))
 	{
 		ptr++;
 	}

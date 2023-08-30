@@ -86,7 +86,7 @@ void	ft_printnum(int num, char *base, int size, int div)
 		write (1, &base[0], 1);
 		div /= size;
 	}
-	while (num >= size)
+	while (div >= size)
 	{
 		i = num / div;
 		write (1, &base[i], 1);
