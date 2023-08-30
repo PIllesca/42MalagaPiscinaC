@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 13:14:49 by pillesca          #+#    #+#             */
-/*   Updated: 2023/08/28 19:45:41 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:16:07 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -73,7 +73,17 @@ void	read_map(char *fname, char **buffer, char *c, int *xy)
 	if (fid >= 0)
 	{
 		size = read_file(fid, buffer);
+		close(fid);
+		if (size <= 0 || *buffer[0] < '0' || *buffer[0] > '9')
+		{
+			write (1, "map error\n", 10);
+			exit (1);
+		}
 		read_buffer(*buffer, xy, c, size);
 	}
-	close(fid);
+	else
+	{
+		write (1, "map error\n", 10);
+		exit (1);
+	}
 }

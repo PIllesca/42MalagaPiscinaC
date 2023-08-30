@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
-#include <unistd.h>
 
 char	**init_matrix(int *xy, char c)
 {
