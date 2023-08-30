@@ -18,7 +18,7 @@ void	draw_matrix(char **mat, int *xy);
 
 void	free_matrix(int size, char**mat, char *buffer);
 
-void	add_obst(char **mat, char *buffer, char *c);
+void	add_obst(char **mat, char *buffer, char *c, int *xy);
 
 void	read_map(char *fname, char **buffer, char *c, int *xy);
 
@@ -33,7 +33,7 @@ void	ft_calls(char *fname)
 
 	read_map(fname, &buffer, c, xy);
 	mat = init_matrix(xy, c[0]);
-	add_obst(mat, buffer, c);
+	add_obst(mat, buffer, c, xy);
 	ft_bsq(xy, mat, c);
 	draw_matrix(mat, xy);
 	free_matrix(xy[1], mat, buffer);
@@ -50,6 +50,8 @@ int	main(int argc, char *argv[])
 		{
 			ft_calls(argv[i]);
 			i++;
+			if (i < argc)
+				write (1, "\n", 1);
 		}
 	}
 	else

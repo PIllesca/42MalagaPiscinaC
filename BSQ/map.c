@@ -15,6 +15,8 @@
 
 #define BSIZE 1024
 
+void	chk_map(char *buffer, int *xy, char *c, int size);
+
 int	open_map(char *fname)
 {
 	int	file;
@@ -42,7 +44,7 @@ void	read_buffer(char *buffer, int *xy, char *c, int size)
 	int		i;
 
 	i = 0;
-	while (buffer[i] >= '0' && buffer[i] <= '9')
+	while (buffer[i] >= '0' && buffer[i] <= '9' && buffer[i + 3] != '\n')
 		i++;
 	c[0] = buffer[i];
 	c[1] = buffer[i + 1];
@@ -80,6 +82,7 @@ void	read_map(char *fname, char **buffer, char *c, int *xy)
 			exit (1);
 		}
 		read_buffer(*buffer, xy, c, size);
+		chk_map(*buffer, xy, c, size);
 	}
 	else
 	{

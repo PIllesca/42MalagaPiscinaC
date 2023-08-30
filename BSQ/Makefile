@@ -13,5 +13,5 @@
 CC=cc
 CFLAGS= -Wall -Wextra -Werror
 
-bsq: main.c init.c draw.c map.c bsq.c
-	$(CC) $(CFLAGS) -o bsq main.c init.c draw.c map.c bsq.c
+bsq: main.c init.c draw.c map.c bsq.c error.c
+	$(CC) $(CFLAGS) -o bsq main.c init.c draw.c map.c bsq.c error.c

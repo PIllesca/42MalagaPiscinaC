@@ -33,7 +33,7 @@ char	**init_matrix(int *xy, char c)
 	return (mat);
 }
 
-void	add_obst(char **mat, char *buffer, char *c)
+void	add_obst(char **mat, char *buffer, char *c, int *xy)
 {
 	int	i;
 	int	x;
@@ -47,7 +47,7 @@ void	add_obst(char **mat, char *buffer, char *c)
 	i++;
 	while (buffer[i] != '\0')
 	{
-		if (buffer[i] == c[1])
+		if (buffer[i] == c[1] && y < xy[1] && x < xy[0])
 			mat[y][x] = c[1];
 		i++;
 		x++;

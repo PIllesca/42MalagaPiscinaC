@@ -28,5 +28,4 @@ void	draw_matrix(char **mat, int *xy)
 		write (1, "\n", 1);
 		i++;
 	}
-	write (1, "\n", 1);
 }
