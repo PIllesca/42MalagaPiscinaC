@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:12:49 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/11 12:39:29 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:22:04 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ unsigned long	ft_strlen(char *str);
 // Funciones sobre cadenas
 void			*ft_memset(void *b, int c, unsigned long len);
 void			ft_bzero(void *s, unsigned long n);
+void			*ft_memcpy(void *dst, const void *src, unsigned long n);
+void			*ft_memmove(void *dst, const void *src, unsigned long len);
 
 #endif
