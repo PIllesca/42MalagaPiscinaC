@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:13:55 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/13 12:29:21 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/13 12:37:21 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
+// Función que busca un caracter c en los primeros n caracteres de la cadena s
+// devuelve un puntero al caracter encontrado o NULL si no lo encuentra
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*ptr;
 	char	*str;
 
-	ptr = dst;
-	str = src;
-	while (n > 0)
+	str = (char *)s;
+	while (n > 0 && *str)
 	{
-		*ptr = *str;
-		ptr++;
-		str++;
+		if (*str == (unsigned char)c)
+			return (str);
 		n--;
+		str++;
 	}
-	return (dst);
+	if (n > 0 && *str == (unsigned char)c)
+		return (str);
+	return (NULL);
 }

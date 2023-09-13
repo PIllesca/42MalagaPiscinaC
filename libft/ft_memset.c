@@ -6,14 +6,16 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:18:11 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/11 12:35:00 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:14:21 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Función que escribre len bytes de la cadena b con el valor recibido en c
-// convertido a Unsigned char
+#include "libc.h"
 
-void	*ft_memset(void *b, int c, unsigned long len)
+// Función que escribre len bytes de la cadena b con el valor recibido en c
+// convertido a Unsigned char y devuelve puntero original a b
+
+void	*ft_memset(void *b, int c, size_t len)
 {
 	char	*ptr;
 

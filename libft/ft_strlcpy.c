@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:13:55 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/13 11:36:40 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/13 12:14:38 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
+// Funcion que copia dstsize caracteres de la cadena src en dst y
+// devuelve la longitud de src
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	char	*ptr;
-	char	*str;
+	size_t	i;
 
-	ptr = dst;
-	str = src;
-	while (n > 0)
+	i = 0;
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	while (src[i] != '\0' && i < dstsize - 1)
 	{
-		*ptr = *str;
-		ptr++;
-		str++;
-		n--;
+		dst[i] = src[i];
+		i++;
 	}
-	return (dst);
+	dst[i] = '\0';
+	return (ft_strlen(src));
 }

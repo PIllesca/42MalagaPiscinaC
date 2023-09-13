@@ -6,14 +6,16 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:58:33 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/11 12:32:44 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:14:47 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// Función que devuelve el tamaño de una cadena, Unsigned long por que size_t
+#include "libc.h"
+
+// Función que devuelve el tamaño de una cadena, size_t por que size_t
 // no esta declarado por defecto.
 
-unsigned long	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	char	*ptr;
 

@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:13:55 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/13 11:53:47 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/13 11:54:28 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+// Funcion que convierte un caracter en minuscula si es mayuscula,
+// si no devuelve el caracter como tal
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	tolower(int c)
 {
-	char	*ptr;
-	char	*str;
-
-	ptr = dst;
-	str = src;
-	while (n > 0)
+	if (c >= 'A' && c <= 'Z')
 	{
-		*ptr = *str;
-		ptr++;
-		str++;
-		n--;
+		return (c + 32);
 	}
-	return (dst);
+	else
+		return (c);
 }

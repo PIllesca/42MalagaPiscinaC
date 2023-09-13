@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:13:55 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/13 11:55:07 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/13 12:38:28 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
+// Funcion que devuelve la primera ocurrencia de un caracter en una cadena
+// si no lo encuentra devuelve 0
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	char	*ptr;
-	char	*str;
-
-	ptr = dst;
-	str = src;
-	while (n > 0)
+	while (*s)
 	{
-		*ptr = *str;
-		ptr++;
-		str++;
-		n--;
+		if (*s == (char)c)
+			return (*s);
+		s++;
 	}
-	return (dst);
+	if (*s == (char)c)
+		return (*s);
+	return (NULL);
 }

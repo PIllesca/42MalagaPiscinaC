@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:13:55 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/13 12:07:31 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/13 12:28:58 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libc.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
+// Función que compara n caracteres de dos cadenas, devuelve 0 si son iguales
+// o la diferencia del valor ascii del primer caracter diferente
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*ptr;
-	char	*str;
-
-	ptr = dst;
-	str = src;
-	while (n > 0)
+	while (*s1 && *s2 && n > 0)
 	{
-		*ptr = *str;
-		ptr++;
-		str++;
+		if (*s1 != *s2)
+			return (*s1 - *s2);
 		n--;
+		s1++;
+		s2++;
 	}
-	return (dst);
+	if (n == 0)
+		return (0);
+	return (*s1 - *s2);
 }
