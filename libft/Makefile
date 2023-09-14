@@ -6,7 +6,7 @@
 #    By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 11:16:21 by pillesca          #+#    #+#              #
-#    Updated: 2023/09/14 13:36:00 by pillesca         ###   ########.fr        #
+#    Updated: 2023/09/14 13:55:16 by pillesca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c
 SRC += ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c
 SRC += ft_memmove.c ft_memset.c ft_strchr.c ft_strlen.c ft_strlcat.c 
 SRC += ft_strlcpy.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_tolower.c
-SRC += ft_toupper.c
+SRC += ft_toupper.c ft_calloc.c ft_strdup.c
 
 OBJ = $(SRC:.c=.o)
 
