@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:56:07 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 13:18:39 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:23:07 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*str;
-	char	*to_find;
+	const char	*str;
+	const char	*to_find;
 
 	if (needle == NULL || *needle == '\0')
 		return ((char *)haystack);
@@ -41,4 +41,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		haystack++;
 		len--;
 	}
+	return (NULL);
 }

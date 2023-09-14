@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:58:33 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:14:47 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:21:10 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 // Función que devuelve el tamaño de una cadena, size_t por que size_t
 // no esta declarado por defecto.
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
-	char	*ptr;
+	const char	*ptr;
 
 	ptr = str;
 	while (*str)

@@ -6,11 +6,11 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:36:40 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:14:38 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:20:47 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Funcion que copia dstsize caracteres de la cadena src en dst y
 // devuelve la longitud de src

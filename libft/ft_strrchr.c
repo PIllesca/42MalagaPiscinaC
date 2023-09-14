@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 12:00:16 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:01:22 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:24:26 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ char	*strrchr(const char *s, int c)
 	while (*s)
 	{
 		if (*s == (char)c)
-			ptr = s;
+			ptr = (char *)s;
 		s++;
 	}
 	if (*s == (char)c)
-		ptr = s;
+		ptr = (char *)s;
 	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 11:55:07 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:38:28 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:14:18 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s)
+	char	*str;
+
+	str = (char *)s;
+	while (*str)
 	{
-		if (*s == (char)c)
-			return (*s);
-		s++;
+		if (*str == (char)c)
+			return (str);
+		str++;
 	}
-	if (*s == (char)c)
-		return (*s);
+	if (*str == (char)c)
+		return (str);
 	return (NULL);
 }

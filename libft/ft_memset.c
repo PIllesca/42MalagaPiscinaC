@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 12:18:11 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/13 12:14:21 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:09:03 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	char	*ptr;
 
-	ptr = b;
+	ptr = (char *)b;
 	while (len > 0)
 	{
 		*ptr = (unsigned char)c;
