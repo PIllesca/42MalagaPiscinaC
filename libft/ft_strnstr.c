@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que busca la primera aparición de la cadena needle en la cadena
 // haystack en los primeros len caracteres de la cadena haystack.
