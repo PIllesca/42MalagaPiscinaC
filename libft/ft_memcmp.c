@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que compara los primeros n caracteres de las cadenas s1 y s2
 // devuelve 0 si son iguales o la diferencia entre el valor ascii del primer
