@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que escribre len bytes de la cadena b con el valor recibido en c
 // convertido a Unsigned char y devuelve puntero original a b
