@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que devuelve el tamaño de una cadena, size_t por que size_t
 // no esta declarado por defecto.
