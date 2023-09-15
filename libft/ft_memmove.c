@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
 
