@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que compara n caracteres de dos cadenas, devuelve 0 si son iguales
 // o la diferencia del valor ascii del primer caracter diferente
