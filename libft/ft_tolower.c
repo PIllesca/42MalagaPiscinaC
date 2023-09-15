@@ -13,7 +13,7 @@
 // Funcion que convierte un caracter en minuscula si es mayuscula,
 // si no devuelve el caracter como tal
 
-int	tolower(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 	{
