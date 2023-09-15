@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Función que busca un caracter c en los primeros n caracteres de la cadena s
 // devuelve un puntero al caracter encontrado o NULL si no lo encuentra
