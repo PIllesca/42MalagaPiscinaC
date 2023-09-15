@@ -13,7 +13,7 @@
 // Funcion que devuelve la ultima ocurrencia de un caracter en una cadena
 // si no lo encuentra devuelve 0
 
-char	*strrchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	char	*ptr;
 
