@@ -15,7 +15,7 @@
 // Función que compara n caracteres de dos cadenas, devuelve 0 si son iguales
 // o la diferencia del valor ascii del primer caracter diferente
 
-int	strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	while (*s1 && *s2 && n > 0)
 	{
