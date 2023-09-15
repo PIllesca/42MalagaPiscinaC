@@ -16,7 +16,7 @@
 // devuelve 0 si son iguales o la diferencia entre el valor ascii del primer
 // caracter diferente
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	char	*str1;
 	char	*str2;
