@@ -15,7 +15,7 @@
 // Funcion que concatena src a dst, con un maximo de dstsize caracteres y
 // devuelve la longitud de src + la longitud de dst
 
-size_t	strlcat(char *dst, const char *src, size_t dstsize)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
