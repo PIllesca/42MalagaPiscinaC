@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libc.h"
+#include "libft.h"
 
 // Funcion que devuelve la primera ocurrencia de un caracter en una cadena
 // si no lo encuentra devuelve 0
