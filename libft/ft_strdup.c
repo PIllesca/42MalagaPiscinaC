@@ -6,14 +6,14 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 13:50:59 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/14 13:58:02 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:01:06 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 // Función que reserva memoria para una copia de la cadena de caracteres s1
-// copia s1 en la memoria reservada y devuelve un puntero a la nueva cadena.
+// copia s1 en la memoria reservada y devuelve un puntero a la nuevag cadena.
 
 char	*ft_strdup(const char *s1)
 {
