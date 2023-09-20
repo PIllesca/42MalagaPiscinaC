@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:12:49 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/20 11:55:55 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:08:59 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(char *s, int c);
 void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 // Funciones de manipulación de memoria
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
