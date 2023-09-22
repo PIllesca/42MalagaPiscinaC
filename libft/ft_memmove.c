@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:19:56 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/16 12:11:18 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:42:25 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,19 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*dest;
 	char	*str;
 
+	if (dst == NULL && src == NULL)
+		return (dst);
 	dest = dst;
 	str = (char *)src;
 	if (dest < str)
 	{
-		while (len > 0)
-		{
-			*dest = *str;
-			dest++;
-			str++;
-			len--;
-		}
+		while (len--)
+			*dest++ = *str++;
 	}
 	else
 	{
-		while (len > 0)
-		{
-			dest[len - 1] = str[len - 1];
-			len--;
-		}
+		while (len--)
+			dest[len] = str[len];
 	}
 	return (dst);
 }

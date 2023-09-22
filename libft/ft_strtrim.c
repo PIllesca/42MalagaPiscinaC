@@ -6,11 +6,13 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 12:53:25 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/20 13:44:19 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:48:25 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+// Función que devuelve la posición del primer caracter de la cadena
 
 static size_t	ft_firstchar(char const *s1, char const *set)
 {
@@ -33,6 +35,8 @@ static size_t	ft_firstchar(char const *s1, char const *set)
 	}
 	return (i);
 }
+
+// Función que devuelve la posición del primer caracter de la cadena
 
 static size_t	ft_lastchar(char const *s1, char const *set)
 {
@@ -57,6 +61,9 @@ static size_t	ft_lastchar(char const *s1, char const *set)
 	}
 	return (i);
 }
+
+// Función que elimina todos los caracteres contenidos en set del principio
+// y el final del string s1
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

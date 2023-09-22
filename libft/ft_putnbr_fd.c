@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/22 12:41:58 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/22 17:15:50 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/22 17:23:13 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
-
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	char	*ptr;
 	char	*str;
 
-	if (dst == NULL && src == NULL)
-		return (dst);
-	ptr = dst;
-	str = (char *)src;
-	while (n--)
-		*ptr++ = *str++;
-	return (dst);
+	str = ft_itoa(n);
+	ft_putstr_fd(str, fd);
+	free(str);
 }

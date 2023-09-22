@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/12 12:52:04 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/22 12:41:58 by pillesca         ###   ########.fr       */
+/*   Created: 2023/09/22 17:02:56 by pillesca          #+#    #+#             */
+/*   Updated: 2023/09/22 17:20:20 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-// Función que copia n bytes de la cadena src a dst y devuelve un puntero a dst.
+// Función que envia la cadena s al file descriptor fd
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putstr_fd(char *s, int fd)
 {
-	char	*ptr;
-	char	*str;
-
-	if (dst == NULL && src == NULL)
-		return (dst);
-	ptr = dst;
-	str = (char *)src;
-	while (n--)
-		*ptr++ = *str++;
-	return (dst);
+	while (*s)
+	{
+		ft_putchar_fd(*s++, fd);
+	}
 }
