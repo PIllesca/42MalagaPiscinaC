@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 11:29:24 by pillesca          #+#    #+#             */
-/*   Updated: 2023/09/21 12:04:21 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/09/25 15:45:41 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,16 @@ static char	*ft_getword(char const *s, char c)
 	return (str);
 }
 
+// Función para liberar la memoria si hay un fallo en ft_split
+
+static void	*ft_freeptr(char **ptr, size_t i)
+{
+	while (i--)
+		free(ptr[i]);
+	free(ptr);
+	return (NULL);
+}
+
 // Función que separa una cadena de caracteres en un array terminado en NULL
 // de cadenas de caracteres separadas por un caracter c.
 
@@ -90,7 +100,7 @@ char	**ft_split(char const *s, char c)
 		{
 			ptr[i] = ft_getword(s, c);
 			if (!ptr[i])
-				return (NULL);
+				return (ft_freeptr(ptr, i));
 			i++;
 			while (*s && *s != c)
 				s++;
