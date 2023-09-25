@@ -72,6 +72,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	s1 += ft_firstchar(s1, set);
 	size = ft_lastchar(s1, set);
+	if (size == 0)
+		return (ft_calloc(1, sizeof(char)));
 	str = ft_calloc(size + 2, sizeof(char));
 	if (!str)
 		return (NULL);
