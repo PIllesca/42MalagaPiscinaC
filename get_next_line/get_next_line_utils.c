@@ -6,11 +6,13 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:18:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/01 16:11:27 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/02 13:35:22 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+// Función que devuelve la longitud de una cadena
 
 size_t	ft_strlen(const char *str)
 {
@@ -22,19 +24,8 @@ size_t	ft_strlen(const char *str)
 	return (str - ptr);
 }
 
-void	ft_bzero(void *s, size_t n)
-{
-	char	*str;
-
-	str = s;
-	while (n > 0)
-	{
-		*str = 0;
-		str++;
-		n--;
-	}
-	return ;
-}
+// Función que reserva memoria para un array de n elementos de tamaño size y
+// rellena el array con 0 en cada byte
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -43,9 +34,14 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, count * size);
+	count *= size;
+	while (count--)
+		((char *)ptr)[count] = 0;
 	return (ptr);
 }
+
+// Función que devuelve un puntero a la primera ocurrencia del carácter c en la
+// cadena s
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -62,6 +58,8 @@ char	*ft_strchr(const char *s, int c)
 		return (str);
 	return (NULL);
 }
+
+// Función que concatena dos cadenas
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
