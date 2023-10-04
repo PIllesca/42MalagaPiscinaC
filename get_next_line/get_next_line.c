@@ -6,14 +6,33 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/04 13:43:54 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/04 15:31:42 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-// Función que lee el archivo con el file descriptor recibido y guarda hasta el
-// primer salto de línea o el final del archivo en el buffer.
+/**
+ * @brief Función que libera la memoria de la cadena recibida y devuelve NULL
+ *  para controlar errores
+ * @param str cadena a liberar
+ * @return NULL
+ */
+
+static char	*ft_free_null(char *str)
+{
+	if (str)
+		free(str);
+	return (NULL);
+}
+
+/**
+ * @brief Función que lee el archivo con el file descriptor recibido y guarda
+ * hasta el primer salto de línea o el final del archivo en el buffer.
+ * @param fd file descriptor del archivo a leer
+ * @param buffer cadena donde se guardará el contenido del archivo
+ * @return buffer con el contenido del archivo
+*/
 
 static char	*ft_read_file(int fd, char *buffer)
 {
@@ -24,11 +43,13 @@ static char	*ft_read_file(int fd, char *buffer)
 	while (size > 0)
 	{
 		str = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+		if (!str)
+			return (ft_free_null(buffer));
 		size = read(fd, str, BUFFER_SIZE);
 		if (size <= 0)
 		{
 			free(str);
-			return (NULL);
+			return (ft_free_null(buffer));
 		}
 		str[size] = '\0';
 		buffer = ft_strjoin(buffer, str);
@@ -39,7 +60,11 @@ static char	*ft_read_file(int fd, char *buffer)
 	return (buffer);
 }
 
-// Función que devuelve la primera línea del buffer
+/**
+ * @brief Función que devuelve la primera línea del buffer
+ * @param buffer cadena de la que se extraerá la primera línea
+ * @return la primera línea del buffer
+*/
 
 static char	*ft_get_cline(char *buffer)
 {
@@ -65,7 +90,11 @@ static char	*ft_get_cline(char *buffer)
 	return (line);
 }
 
-// Función que devuelve el buffer tras el primer salto de línea
+/**
+ * @brief Función que devuelve la cadena tras el primer salto de línea
+ * @param buffer cadena a modificar
+ * @return la cadena tras el primer salto de línea
+*/
 
 static char	*ft_get_nline(char *buffer)
 {
@@ -77,11 +106,10 @@ static char	*ft_get_nline(char *buffer)
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
 	if (buffer[i] == '\0')
-	{
-		free(buffer);
-		return (NULL);
-	}
-	str = ft_calloc((ft_strlen(buffer) - i - 1), sizeof(char));
+		return (ft_free_null(buffer));
+	str = ft_calloc((ft_strlen(buffer) - i), sizeof(char));
+	if (!str)
+		return (ft_free_null(buffer));
 	i++;
 	j = 0;
 	while (buffer[i] != '\0')
@@ -89,8 +117,12 @@ static char	*ft_get_nline(char *buffer)
 	free(buffer);
 	return (str);
 }
-// Función que lee el archivo con el file descriptor recibido y devuelve la
-// siguiente línea del archivo
+/**
+ * @brief Función que lee el archivo con el file descriptor recibido y devuelve
+ * la siguiente línea del archivo
+ * @param fd file descriptor del archivo a leer
+ * @return la siguiente línea del archivo
+*/
 
 char	*get_next_line(int fd)
 {
@@ -111,6 +143,7 @@ char	*get_next_line(int fd)
 	if (buffer && *buffer == '\0')
 	{
 		free(buffer);
+		buffer = NULL;
 	}
 	return (line);
 }
