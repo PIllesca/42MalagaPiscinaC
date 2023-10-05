@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/05 19:28:28 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:42:29 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ static char	*ft_read_file(int fd, char *buffer)
 		if (!str)
 			return (ft_free_null(buffer));
 		size = read(fd, str, BUFFER_SIZE);
-		if (size < 0)
+		if (size == 0)
 		{
 			free(str);
-			return (ft_free_null(buffer));
+			break ;
 		}
 		str[size] = '\0';
 		buffer = ft_strjoin(buffer, str);

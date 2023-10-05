@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:36:52 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/05 19:27:28 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/05 19:41:54 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,10 +145,10 @@ static char	*ft_read_file(int fd, char *buffer)
 		if (!str)
 			return (ft_free_null(buffer));
 		size = read(fd, str, BUFFER_SIZE);
-		if (size < 0)
+		if (size == 0)
 		{
 			free(str);
-			return (ft_free_null(buffer));
+			break ;
 		}
 		str[size] = '\0';
 		buffer = ft_strjoin(buffer, str);
@@ -258,7 +258,7 @@ int	main(int argc, char *argv[])
 	int		fd;
 
 	if (argc == 1)
-		fd = open ("test1.txt", 0);
+		fd = open ("test2.txt", 0);
 	else
 		fd = open (argv[1], 0);
 	if (fd < 0)
