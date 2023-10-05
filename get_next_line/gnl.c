@@ -1,16 +1,115 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/05 19:28:28 by pillesca         ###   ########.fr       */
+/*   Created: 2023/10/05 18:36:52 by pillesca          #+#    #+#             */
+/*   Updated: 2023/10/05 19:27:28 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+# include <unistd.h>
+# include <stdlib.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+size_t	ft_strlen(const char *str)
+{
+	const char	*ptr;
+
+	ptr = str;
+	while (*str)
+		str++;
+	return (str - ptr);
+}
+
+// Función que reserva memoria para un array de n elementos de tamaño size y
+// rellena el array con 0 en cada byte
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	count *= size;
+	while (count--)
+		((char *)ptr)[count] = 0;
+	return (ptr);
+}
+
+// Función que devuelve un puntero a la primera ocurrencia del carácter c en la
+// cadena s
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+
+	str = (char *)s;
+	while (*str)
+	{
+		if (*str == (char)c)
+			return (str);
+		str++;
+	}
+	if (*str == (char)c)
+		return (str);
+	return (NULL);
+}
+
+// Función que concatena dos cadenas
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	size;
+	size_t	i;
+	size_t	j;
+
+	size = ft_strlen(s1) + ft_strlen(s2);
+	str = ft_calloc(size + 1, sizeof(char));
+	if (!str || !s1 || !s2)
+		return (NULL);
+	i = 0;
+	while (s1[i] != '\0' && i < size - 1)
+	{
+		str[i] = s1[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0' && i < size)
+	{
+		str[i] = s2[j];
+		i++;
+		j++;
+	}
+	if (i < size)
+		str[size] = '\0';
+	return (str);
+}
+
+// Función que reserva memoria para una copia de la cadena de caracteres s1
+// copia s1 en la memoria reservada y devuelve un puntero a la nueva cadena.
+
+char	*ft_strdup(const char *s1)
+{
+	char	*str;
+	char	*ptr;
+	size_t	size;
+
+	size = ft_strlen(s1);
+	str = ft_calloc(size + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	ptr = str;
+	while (size--)
+		*str++ = *s1++;
+	return (ptr);
+}
 
 /**
  * @brief Función que libera la memoria de la cadena recibida y devuelve NULL
@@ -148,4 +247,32 @@ char	*get_next_line(int fd)
 		buffer = NULL;
 	}
 	return (line);
+}
+
+#include <fcntl.h>
+#include <stdio.h>
+
+int	main(int argc, char *argv[])
+{
+	char	*str;
+	int		fd;
+
+	if (argc == 1)
+		fd = open ("test1.txt", 0);
+	else
+		fd = open (argv[1], 0);
+	if (fd < 0)
+	{
+		printf("Error de lectura\n");
+		return (1);
+	}
+	str = get_next_line(fd);
+	while (str != NULL)
+	{
+		printf("%s\n", str);
+		free(str);
+		str = get_next_line(fd);
+	}
+	close(fd);
+	return (0);
 }
