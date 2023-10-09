@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/09 17:47:47 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:37:33 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ char	*get_next_line(int fd)
 	if (!line)
 		return (ft_free_null(buffer));
 	buffer = ft_get_nline(buffer);
-	if (buffer && *buffer == '\0')
+	if (buffer && !*buffer)
 		buffer = ft_free_null(buffer);
 	return (line);
 }

@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:18:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/04 13:15:39 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:31:53 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,23 +88,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (i < size)
 		str[size] = '\0';
 	return (str);
-}
-
-// Función que reserva memoria para una copia de la cadena de caracteres s1
-// copia s1 en la memoria reservada y devuelve un puntero a la nueva cadena.
-
-char	*ft_strdup(const char *s1)
-{
-	char	*str;
-	char	*ptr;
-	size_t	size;
-
-	size = ft_strlen(s1);
-	str = ft_calloc(size + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	ptr = str;
-	while (size--)
-		*str++ = *s1++;
-	return (ptr);
 }
