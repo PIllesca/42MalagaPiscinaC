@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/05 19:42:29 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:47:47 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ static char	*ft_get_cline(char *buffer)
 	i = 0;
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
-	line = ft_calloc(i + 2, sizeof(char));
+	if (buffer[i] == '\n')
+		line = ft_calloc(i + 2, sizeof(char));
+	else
+		line = ft_calloc(i + 1, sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -87,7 +90,7 @@ static char	*ft_get_cline(char *buffer)
 		line[i] = buffer[i];
 		i++;
 	}
-	if (buffer[i] == '\n' || buffer[i] == '\0')
+	if (buffer[i] == '\n')
 		line[i++] = '\n';
 	return (line);
 }
@@ -131,7 +134,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (NULL);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
@@ -140,12 +143,9 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_get_cline(buffer);
 	if (!line)
-		return (NULL);
+		return (ft_free_null(buffer));
 	buffer = ft_get_nline(buffer);
 	if (buffer && *buffer == '\0')
-	{
-		free(buffer);
-		buffer = NULL;
-	}
+		buffer = ft_free_null(buffer);
 	return (line);
 }

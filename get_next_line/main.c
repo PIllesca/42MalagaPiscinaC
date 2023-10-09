@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 14:54:00 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/01 17:04:35 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/09 17:12:25 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 	str = get_next_line(fd);
 	while (str != NULL)
 	{
-		printf("%s\n", str);
+		printf("%s", str);
 		free(str);
 		str = get_next_line(fd);
 	}
