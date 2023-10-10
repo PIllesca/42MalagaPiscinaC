@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:36:52 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/05 19:41:54 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:37:18 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
+
+// Función que devuelve la longitud de una cadena
 
 size_t	ft_strlen(const char *str)
 {
@@ -92,23 +94,18 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (str);
 }
 
-// Función que reserva memoria para una copia de la cadena de caracteres s1
-// copia s1 en la memoria reservada y devuelve un puntero a la nueva cadena.
+// Función que concatena dos cadenas y libera la memoria de las cadenas pasadas
 
-char	*ft_strdup(const char *s1)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*str;
-	char	*ptr;
-	size_t	size;
 
-	size = ft_strlen(s1);
-	str = ft_calloc(size + 1, sizeof(char));
-	if (!str)
-		return (NULL);
-	ptr = str;
-	while (size--)
-		*str++ = *s1++;
-	return (ptr);
+	str = ft_strjoin(s1, s2);
+	if (s1)
+		free(s1);
+	if (s2)
+		free(s2);
+	return (str);
 }
 
 /**
@@ -151,8 +148,7 @@ static char	*ft_read_file(int fd, char *buffer)
 			break ;
 		}
 		str[size] = '\0';
-		buffer = ft_strjoin(buffer, str);
-		free(str);
+		buffer = ft_strjoin_free(buffer, str);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
@@ -177,7 +173,10 @@ static char	*ft_get_cline(char *buffer)
 	i = 0;
 	while (buffer[i] != '\0' && buffer[i] != '\n')
 		i++;
-	line = ft_calloc(i + 2, sizeof(char));
+	if (buffer[i] == '\n')
+		line = ft_calloc(i + 2, sizeof(char));
+	else
+		line = ft_calloc(i + 1, sizeof(char));
 	if (!line)
 		return (NULL);
 	i = 0;
@@ -186,7 +185,7 @@ static char	*ft_get_cline(char *buffer)
 		line[i] = buffer[i];
 		i++;
 	}
-	if (buffer[i] == '\n' || buffer[i] == '\0')
+	if (buffer[i] == '\n')
 		line[i++] = '\n';
 	return (line);
 }
@@ -230,7 +229,7 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
 		return (NULL);
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
@@ -239,13 +238,10 @@ char	*get_next_line(int fd)
 		return (NULL);
 	line = ft_get_cline(buffer);
 	if (!line)
-		return (NULL);
+		return (ft_free_null(buffer));
 	buffer = ft_get_nline(buffer);
-	if (buffer && *buffer == '\0')
-	{
-		free(buffer);
-		buffer = NULL;
-	}
+	if (buffer && !*buffer)
+		buffer = ft_free_null(buffer);
 	return (line);
 }
 

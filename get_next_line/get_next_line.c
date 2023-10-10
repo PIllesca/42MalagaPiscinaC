@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/09 18:37:33 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:32:21 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ static char	*ft_read_file(int fd, char *buffer)
 			break ;
 		}
 		str[size] = '\0';
-		buffer = ft_strjoin(buffer, str);
-		free(str);
+		buffer = ft_strjoin_free(buffer, str);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}

@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 15:18:09 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/09 18:31:53 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/10 18:19:45 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,19 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	if (i < size)
 		str[size] = '\0';
+	return (str);
+}
+
+// Función que concatena dos cadenas y libera la memoria de las cadenas pasadas
+
+char	*ft_strjoin_free(char *s1, char *s2)
+{
+	char	*str;
+
+	str = ft_strjoin(s1, s2);
+	if (s1)
+		free(s1);
+	if (s2)
+		free(s2);
 	return (str);
 }
