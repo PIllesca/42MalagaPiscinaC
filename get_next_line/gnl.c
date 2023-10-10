@@ -6,15 +6,15 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 18:36:52 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/10 18:37:18 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/10 19:36:09 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <unistd.h>
-# include <stdlib.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
+#include <unistd.h>
+#include <stdlib.h>
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 42
+#endif
 
 // Función que devuelve la longitud de una cadena
 
