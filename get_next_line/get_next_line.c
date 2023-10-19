@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 12:14:58 by pillesca          #+#    #+#             */
-/*   Updated: 2023/10/10 18:32:21 by pillesca         ###   ########.fr       */
+/*   Updated: 2023/10/19 13:04:13 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,8 +133,14 @@ char	*get_next_line(int fd)
 	static char	*buffer;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (read(fd, 0, 0) == -1)
+	{
+		if (buffer)
+			buffer = ft_free_null(buffer);
+		return (NULL);
+	}
 	if (!buffer)
 		buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	buffer = ft_read_file(fd, buffer);
