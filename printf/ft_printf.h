@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 12:19:29 by pillesca          #+#    #+#             */
-/*   Updated: 2024/02/27 12:22:09 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/03/15 12:06:31 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@
 # include <stdarg.h>
 # include "libft/libft.h"
 
-int	ft_printf(char const *, ...);
+int	ft_printf(char const *str, ...);
 
 #endif
