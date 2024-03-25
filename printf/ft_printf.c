@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 11:56:49 by pillesca          #+#    #+#             */
-/*   Updated: 2024/03/15 13:16:08 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/03/25 17:41:04 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,12 @@ int	chk_format(char c, va_list args, int i)
 		ft_putnbr_fd(va_arg(args, int), 1);
 	else if (c == 'u')
 		ft_putnbr_u(va_arg(args, int));
+	else if (c == 'x')
+		ft_puthex(va_arg(args, int));
+	else if (c == 'X')
+		ft_putuhex(va_arg(args, int));
+	else if (c == 'p')
+		ft_putmhex(va_arg(args, void *));
 	i++;
 	return (i);
 }

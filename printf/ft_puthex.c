@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tester.c                                           :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/07 13:32:28 by pillesca          #+#    #+#             */
-/*   Updated: 2024/03/25 17:04:36 by pillesca         ###   ########.fr       */
+/*   Created: 2024/03/25 14:00:24 by pillesca          #+#    #+#             */
+/*   Updated: 2024/03/25 17:40:54 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	main(void)
+void    ft_puthex(int num)
 {
-	int i;
-	
-	i = 16;
-	ft_printf("H%cla %%Mundo. %d %i %u \n", 'o', 15, -23, -2147483648);
-	ft_printf("%d %u %u\n", -2147483648, 2147483647, -1);
-	ft_printf("%d %u %u\n", -2147483648, 2147483647, -1);
-	ft_printf("%x %X %p", i, i, i);
-	return (0);
+    char str[18];
+
+    ft_inthex(num, str);
+    ft_putstr_fd(str,1);
+}
+
+void    ft_putuhex(int num)
+{
+    char str[18];
+
+    ft_inthex(num, str);
+    ft_striteri(str, &to_upper);
+    ft_putstr_fd(str,1);
+}
+
+void    ft_putmhex(void *p)
+{
+    char str[18];
+
+    ft_inthex((size_t)&p, str);
+    ft_putstr_fd(str,1);
 }

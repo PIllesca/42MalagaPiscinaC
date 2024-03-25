@@ -6,11 +6,11 @@
 #    By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 11:16:21 by pillesca          #+#    #+#              #
-#    Updated: 2024/03/07 13:29:32 by pillesca         ###   ########.fr        #
+#    Updated: 2024/03/25 17:44:11 by pillesca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = ft_printf.c
+SRC = ft_puthex.c aux_hex.c ft_printf.c 
 LIBFTSRC = libft.a
 LIBFTDIR = ./libft
 
@@ -21,7 +21,7 @@ BONUS += ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
 OBJ_BONUS = $(BONUS:.c=.o)
 
-NAME = ft_printf.out
+NAME = ft_printf.a
 
 AR = ar rcs
 RM = rm -f
