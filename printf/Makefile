@@ -6,7 +6,7 @@
 #    By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 11:16:21 by pillesca          #+#    #+#              #
-#    Updated: 2024/03/25 17:44:11 by pillesca         ###   ########.fr        #
+#    Updated: 2024/03/27 11:58:02 by pillesca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,12 +29,17 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 MK = make bonus -C
 MKC = make clean -C
+ARX = ar -x
+ARQ = ar -q
+RMC = rm *.o
 
 all: $(NAME)
 
 makelibft:
 	$(MK) $(LIBFTDIR)
-	$(MKC) $(LIBFTDIR)
+	$(ARX) $(LIBFTDIR)/$(LIBFTSRC)
+	$(ARQ) $(NAME) *.o
+	$(RMC)
 
 $(NAME): makelibft $(OBJ)
 	$(AR) $(NAME) $(OBJ)
@@ -42,13 +47,14 @@ $(NAME): makelibft $(OBJ)
 clean:
 	$(RM) $(OBJ)
 	$(RM) $(OBJ) $(OBJ_BONUS)
+	$(MKC) $(LIBFTDIR)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-bonus: $(OBJ) $(OBJ_BONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
+#bonus: $(OBJ) $(OBJ_BONUS)
+#	$(AR) $(NAME) $(OBJ) $(OBJ_BONUS)
 
 #.PHONY: all clean fclean re bonus
