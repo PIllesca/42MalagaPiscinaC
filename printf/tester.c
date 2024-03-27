@@ -6,19 +6,20 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 13:32:28 by pillesca          #+#    #+#             */
-/*   Updated: 2024/03/27 13:12:19 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:36:24 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include <limits.h>
 
 int	main(void)
 {
-	int	i;
-	void *ptr;
+	int		i;
+	void	*ptr;
 
-	i = 154;
+	i = INT_MAX * 2;
 	ptr = &i;
 	printf("H%cla %%Mundo. %d %i %u \n", 'o', 15, -23, -2147483648);
 	ft_printf("H%cla %%Mundo. %d %i %u \n", 'o', 15, -23, -2147483648);

@@ -6,7 +6,7 @@
 #    By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 11:16:21 by pillesca          #+#    #+#              #
-#    Updated: 2024/03/27 11:58:02 by pillesca         ###   ########.fr        #
+#    Updated: 2024/03/27 16:35:46 by pillesca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,9 @@ LIBFTDIR = ./libft
 
 OBJ = $(SRC:.c=.o)
 
-BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c
-BONUS += ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
-
 OBJ_BONUS = $(BONUS:.c=.o)
 
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 AR = ar rcs
 RM = rm -f

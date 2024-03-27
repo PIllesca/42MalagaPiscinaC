@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 16:55:41 by pillesca          #+#    #+#             */
-/*   Updated: 2024/03/27 13:21:15 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:37:13 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,31 @@ void	ft_invstr(char *str)
 	}
 }
 
-void	ft_inthex(int num, char *str)
+void	ft_inthex(unsigned int num, char *str)
 {
 	int	temp;
 	int	i;
 
 	i = 0;
-	if (num < 0)
-		num = -num;
+	while (num != 0)
+	{
+		temp = num % 16;
+		if (temp < 10)
+			str[i++] = temp + '0';
+		else
+			str[i++] = temp -10 + 'a';
+		num = num / 16;
+	}
+	str[i++] = '\0';
+	ft_invstr(str);
+}
+
+void	ft_sizethex(size_t num, char *str)
+{
+	size_t	temp;
+	size_t	i;
+
+	i = 0;
 	while (num != 0)
 	{
 		temp = num % 16;
