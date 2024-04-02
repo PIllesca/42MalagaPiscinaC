@@ -6,7 +6,7 @@
 #    By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/11 11:16:21 by pillesca          #+#    #+#              #
-#    Updated: 2024/03/27 16:35:46 by pillesca         ###   ########.fr        #
+#    Updated: 2024/04/02 11:18:13 by pillesca         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,23 +20,19 @@ OBJ_BONUS = $(BONUS:.c=.o)
 
 NAME = libftprintf.a
 
-AR = ar rcs
+AR = ar -r
 RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 MK = make bonus -C
 MKC = make clean -C
-ARX = ar -x
-ARQ = ar -q
-RMC = rm *.o
 
 all: $(NAME)
 
 makelibft:
 	$(MK) $(LIBFTDIR)
-	$(ARX) $(LIBFTDIR)/$(LIBFTSRC)
-	$(ARQ) $(NAME) *.o
-	$(RMC)
+	@cp $(LIBFTDIR)/$(LIBFTSRC) .
+	@mv $(LIBFTSRC) $(NAME)
 
 $(NAME): makelibft $(OBJ)
 	$(AR) $(NAME) $(OBJ)
