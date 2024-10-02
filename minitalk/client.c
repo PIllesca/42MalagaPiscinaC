@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:56:55 by pillesca          #+#    #+#             */
-/*   Updated: 2024/10/02 13:19:57 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:58:58 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	ft_receive_sig(int signum, siginfo_t *info, void *context)
  */
 static void	ft_send_sig(int pid, char c)
 {
-	int	i;
+	unsigned long	i;
 
 	i = 0;
 	while (i < 8)

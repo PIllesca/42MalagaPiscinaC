@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:38:03 by pillesca          #+#    #+#             */
-/*   Updated: 2024/10/02 13:19:04 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:58:49 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 static void	ft_receive_sig(int signum, siginfo_t *info, void *context)
 {
 	static unsigned char	c = 0;
-	static int				i = 0;
+	static unsigned long 	i = 0;
 	static pid_t			pid = 0;
 
 	(void)context;
