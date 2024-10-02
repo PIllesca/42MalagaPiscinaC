@@ -6,7 +6,7 @@
 /*   By: pillesca <pillesca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 11:42:58 by pillesca          #+#    #+#             */
-/*   Updated: 2024/09/30 12:00:34 by pillesca         ###   ########.fr       */
+/*   Updated: 2024/10/02 18:07:28 by pillesca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,15 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (nb * sign);
+}
+
+/**
+ * Función que imprime un mensaje de error y sale del programa
+ * 
+ * @param[in] s Mensaje de error
+ */
+void	ft_error_exit(char *s)
+{
+	ft_putstr(s);
+	exit(EXIT_FAILURE);
 }
